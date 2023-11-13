@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- insérez le nom de votre site -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body id="body_devis_pdf">
+    <header>
+        <h1>Devis <span id="devis_number"></span></h1>
+        <h2 id="devis_date"></h2>
+    </header>
+    <div id="div_devis_pdf_info">
+        <div>
+            <!-- complétez les informations de votre société -->
+            <h3>Émetteur</h3>
+            <h4>Société : Société</h4>
+            <h4>Adresse : Adresse</h4>
+            <h4>Pays : Pays</h4>
+            <h4>Numéro d'entreprise : Numéro d'entreprise</h4>
+            <h4>Code d'activité : Code d'activité</h4>
+            <h4>Numéro de téléphone : Numéro de téléphone</h4>
+            <h4>Adresse email : Adresse email</h4>
+        </div>
+        <div>
+            <h3>Destinataire</h3>
+            <h4>Nom : <span id="devis_name"></span></h4>
+            <h4>Adresse : <span id="devis_address"></span></h4>
+            <h4>Pays : <span id="devis_country">France</span></h4>
+            <h4>Adresse email : <span id="devis_email"></span></h4>
+        </div>
+    </div>
+    <div>
+        <h2>Détail</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Prix Unitaire</th>
+                    <th>Montant</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div>
+        <h3>Total : <span id="devis_total">000</span>€</h3>
+    </div>
+    <script>
+        devis_total = document.getElementById('devis_total');
+        span_prices = document.querySelectorAll('.span_prices');
+        total_price = 0;
+        span_prices.forEach(price => {
+            total_price += parseInt(price.innerHTML);
+        })
+        devis_total.innerHTML = total_price;
+    </script>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Background color */
+}
+
+header {
+    background-color: #333; /* Header background color */
+    color: #fff; /* Header text color */
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+#div_devis_pdf_info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#div_devis_pdf_info > div {
+    background-color: #fff; /* Background color for the info boxes */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin-right: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd; /* Table border color */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333; /* Table header background color */
+    color: #fff; /* Table header text color */
+}
+
+h3 {
+    margin-top: 20px;
+    color: #333; /* Total text color */
+}
+
+#devis_total {
+    color: #e44d26; /* Total amount color */
+}
+
+/* Add more styles or customize as needed */
+
+    </style>
+</body>
+</html>
